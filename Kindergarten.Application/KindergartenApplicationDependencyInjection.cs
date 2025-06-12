@@ -7,7 +7,7 @@ public static class KindergartenApplicationDependencyInjection
 {
     public static IServiceCollection AddKindergartenApplicationDependencyInjection(this IServiceCollection services)
     {
-        services.AddMediatR(Assembly.GetExecutingAssembly());
+        //services.AddMediatR(Assembly.GetExecutingAssembly());
         return services;
     }
 }

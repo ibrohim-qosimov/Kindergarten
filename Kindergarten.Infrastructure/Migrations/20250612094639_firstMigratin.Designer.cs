@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Kindergarten.Infrastructure.Migrations
 {
     [DbContext(typeof(KindergartenDbContext))]
-    [Migration("20250612092438_firstMigrationnn")]
-    partial class firstMigrationnn
+    [Migration("20250612094639_firstMigratin")]
+    partial class firstMigratin
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,9 +32,8 @@ namespace Kindergarten.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Age")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Age")
+                        .HasColumnType("integer");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
