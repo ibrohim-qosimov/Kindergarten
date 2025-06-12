@@ -1,4 +1,5 @@
 
+using Kindergarten.Application;
 using Kindergarten.Infrastructure;
 
 namespace Kindergarten.API
@@ -12,7 +13,7 @@ namespace Kindergarten.API
             // Add services to the container.
 
             builder.Services.AddKindergartenInfrastructureDependenyInjection(builder.Configuration);
-
+            builder.Services.AddKindergartenApplicationDependencyInjection();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
