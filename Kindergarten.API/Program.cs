@@ -32,7 +32,6 @@ namespace Kindergarten.API
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
