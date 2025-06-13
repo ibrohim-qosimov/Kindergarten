@@ -1,4 +1,5 @@
-﻿using Kindergarten.Infrastructure.Persistance;
+﻿using Kindergarten.Application.Abstractions;
+using Kindergarten.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +9,7 @@ public static class KindergartenInfrastructureDependenyInjection
 {
     public static IServiceCollection AddKindergartenInfrastructureDependenyInjection(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<KindergartenDbContext>(options =>
+        services.AddDbContext<IApplicationDbContext,KindergartenDbContext>(options =>
         {
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
         });
