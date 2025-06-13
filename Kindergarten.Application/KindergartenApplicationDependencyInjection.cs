@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Kindergarten.Application.UseCases.ChildrenServices.Queries;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -7,7 +8,7 @@ public static class KindergartenApplicationDependencyInjection
 {
     public static IServiceCollection AddKindergartenApplicationDependencyInjection(this IServiceCollection services)
     {
-        //services.AddMediatR(Assembly.GetExecutingAssembly());
+        services.AddMediatR(typeof(GetChildByIdQuery).Assembly);
         return services;
     }
 }
