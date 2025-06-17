@@ -1,5 +1,5 @@
 ﻿
-using Kindergarten.Domain.DTOs;
+using Kindergarten.Application.DTOs;
 using MediatR;
 
 namespace Kindergarten.Application.UseCases.ChildrenServices.Commands;

@@ -14,9 +14,9 @@ namespace Kindergarten.API
 
             builder.Services.AddKindergartenInfrastructureDependenyInjection(builder.Configuration);
             builder.Services.AddKindergartenApplicationDependencyInjection();
-            builder.Services.AddControllers()
-    .AddJsonOptions(x =>
-        x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve);
+            builder.Services.AddControllers();
+            //.AddJsonOptions(x =>
+            //    x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve);
 
 
 

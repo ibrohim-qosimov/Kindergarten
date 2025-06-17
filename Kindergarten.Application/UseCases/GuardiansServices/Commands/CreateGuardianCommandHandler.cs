@@ -1,5 +1,5 @@
 ﻿using Kindergarten.Application.Abstractions;
-using Kindergarten.Domain.DTOs;
+using Kindergarten.Application.DTOs;
 using Kindergarten.Domain.Entities;
 using MediatR;
 

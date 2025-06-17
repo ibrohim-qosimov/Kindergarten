@@ -1,10 +1,10 @@
 ﻿using Kindergarten.Application.Abstractions;
-using Kindergarten.Domain.Entities;
+using Kindergarten.Application.DTOs;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kindergarten.Application.UseCases.GuardiansServices.Queries;
-public class GetGuardianByIdQueryHandler : IRequestHandler<GetGuardianByIdQuery, Guardian>
+public class GetGuardianByIdQueryHandler : IRequestHandler<GetGuardianByIdQuery, GuardianDTO>
 {
     private readonly IApplicationDbContext _context;
 
@@ -13,11 +13,26 @@ public class GetGuardianByIdQueryHandler : IRequestHandler<GetGuardianByIdQuery,
         _context = context;
     }
 
-    public async Task<Guardian> Handle(GetGuardianByIdQuery request, CancellationToken cancellationToken)
+    public async Task<GuardianDTO> Handle(GetGuardianByIdQuery request, CancellationToken cancellationToken)
     {
-        var myGuardian = await _context.Guardians.Include(g=>g.Children).FirstOrDefaultAsync(g => g.Id == request.Id, cancellationToken)
-            ?? throw new Exception();
+        var myGuardian = await _context.Guardians
+            .Include(g => g.Children)
+                .FirstOrDefaultAsync(g => g.Id == request.Id, cancellationToken)
+                    ?? throw new Exception();
 
-        return myGuardian;
+        var response = new GuardianDTO
+        {
+            Id = myGuardian.Id,
+            FirstName = myGuardian.FirstName,
+            LastName = myGuardian.LastName,
+            Children = myGuardian.Children.Select(c => new ChildDTO
+            {
+                Id = c.Id,
+                FirstName = c.FirstName,
+                LastName = c.LastName
+            }).ToList()
+        };
+
+        return response;
     }
 }

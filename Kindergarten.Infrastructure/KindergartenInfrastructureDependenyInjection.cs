@@ -9,7 +9,7 @@ public static class KindergartenInfrastructureDependenyInjection
 {
     public static IServiceCollection AddKindergartenInfrastructureDependenyInjection(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<IApplicationDbContext,KindergartenDbContext>(options =>
+        services.AddDbContext<IApplicationDbContext, KindergartenDbContext>(options =>
         {
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
         });

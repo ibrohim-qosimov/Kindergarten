@@ -1,8 +1,6 @@
-﻿using Kindergarten.Application.UseCases.ChildrenServices.Queries;
-using Kindergarten.Application.UseCases.GuardiansServices.Commands;
+﻿using Kindergarten.Application.UseCases.GuardiansServices.Commands;
 using Kindergarten.Application.UseCases.GuardiansServices.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kindergarten.API.Controllers

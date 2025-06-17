@@ -1,5 +1,5 @@
-﻿using Kindergarten.Application.UseCases.ChildrenServices.Commands;
-using Kindergarten.Application.UseCases.ChildrenServices.Queries;
+﻿using Kindergarten.Application.UseCases.Educators.Commands;
+using Kindergarten.Application.UseCases.Educators.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,26 +7,26 @@ namespace Kindergarten.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChildrenController : ControllerBase
+    public class EducatorsController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public ChildrenController(IMediator mediator)
+        public EducatorsController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateChild(CreateChildCommand command)
+        public async Task<IActionResult> CreateEducator(CreateEducatorCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetChildById(int id)
+        public async Task<IActionResult> GetEducatorById(int id)
         {
-            var query = new GetChildByIdQuery()
+            var query = new GetEducatorByIdQuery()
             {
                 Id = id
             };
